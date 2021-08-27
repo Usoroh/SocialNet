@@ -1,19 +1,20 @@
 from flask import Flask
 from markupsafe import escape
+from flask import render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<p>Здарова, азиат!</p><div><a href='/login'>Войди на сайт</a></div>"
+    return render_template("index.html")
 
 @app.route("/login")
 def login():
-    return "<p>Здесь будет авторизация</p><div><a href='/register'>Новенький? Зарегайся</a></div>"
+    return render_template("login.html")
 
 @app.route("/register")
 def register():
-    return "<p>Здесь будет регистрация</p><div><a href='/login'>Уже зареган? Войди на сайт</a>"
+    return render_template("register.html")
 
 @app.route("/<name>")
 def hello(name):
